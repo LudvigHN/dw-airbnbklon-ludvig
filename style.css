@@ -29,3 +29,41 @@ ul{
     justify-content: space-between;
     align-items: center;
 }
+.details_main{
+    display: flex;
+    margin: 1rem;
+}
+.facilities__list{
+list-style: disc;
+display: flex;
+flex-direction: column;
+}
+.facilities__list li{
+    margin-left: 1rem;
+}
+.details__img{
+    width: 712px;
+    max-width: 60%;
+    object-fit: contain;
+
+}
+.details__section{
+    margin: 2rem;
+    min-width: 300px
+}
+h4{
+    margin: 10px 0 10px 0;
+}
+.details__location, .details__title, .details__subtitle{
+    text-align: center;
+}
+.details__location{
+    font-weight: 100;
+}
+.details__title{
+    font-weight: 300;
+}
+.details__subtitle{
+    font-size: 1em;
+    font-weight: 100;
+}
