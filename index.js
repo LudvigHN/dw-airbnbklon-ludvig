@@ -15,11 +15,14 @@ fetch("data/destinations.json")
             const itemDiv = document.createElement("div")
             itemDiv.classList.add("item__div")
 
+            const itemFav = document.createElement("p")
+            itemFav.innerHTML = "&hearts;"
+
             const itemLink = document.createElement("a")
             itemLink.classList.add("item_div__link")
             itemLink.setAttribute("href",`details.html/?id=${destination.id}`)
             itemLink.textContent="More"
-            itemDiv.append(itemLink)
+            itemDiv.append(itemFav,itemLink)
             listItem.append(ItemImg,itemDiv)
             listDOM.append(listItem)
 
