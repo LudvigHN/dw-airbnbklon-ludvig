@@ -1,0 +1,31 @@
+body {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+    
+}
+.list__item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.item__img{
+    max-width: 288px;
+    height: 288px;
+    object-fit: fill;
+}
+.item__div{
+    background-color: #cef9ff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
