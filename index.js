@@ -20,7 +20,7 @@ fetch("data/destinations.json")
 
             const itemLink = document.createElement("a")
             itemLink.classList.add("item_div__link")
-            itemLink.setAttribute("href",`details.html/?id=${destination.id}`)
+            itemLink.setAttribute("href",`details.html?id=${destination.id}`)
             itemLink.textContent="More"
             itemDiv.append(itemFav,itemLink)
             listItem.append(ItemImg,itemDiv)
