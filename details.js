@@ -1,57 +1,56 @@
-const url = window.location.search
-
-const param = new URLSearchParams(url)
-
 const id = param.get("id")
 
 const main = document.querySelector("main")
+console.log(id);
 
-fetch(`data/${id}.json`)
-    .then(response => {return response.json()}
-    )
-    .then( data => {
-        const detailsImg = document.createElement("img")
-        detailsImg.setAttribute("src",`img/${data.image}`)
-        detailsImg.classList.add("details__img")
+if (isNaN(id) == false || id != ""){
+    fetchData(`data/${id}.json`, showDetails)
+}
+else{
 
-        const detailsSection = document.createElement("section")
-        detailsSection.classList.add("details__section")
+}
+function showDetails(data) {
+    main.innerHTML=""
+    const detailsImg = document.createElement("img")
+    detailsImg.setAttribute("src", `img/${data.image}`)
+    detailsImg.classList.add("details__img")
 
-        const detailsLocation = document.createElement("h2")
-        detailsLocation.textContent = data.destination
-        detailsLocation.classList.add("details__location")
+    const detailsSection = document.createElement("section")
+    detailsSection.classList.add("details__section")
 
-        const detailsTitle = document.createElement("h1")
-        detailsTitle.textContent = data.title
-        detailsTitle.classList.add("details__title")
+    const detailsLocation = document.createElement("h2")
+    detailsLocation.textContent = data.destination
+    detailsLocation.classList.add("details__location")
 
-        const detailsSubTitle = document.createElement("h3")
-        detailsSubTitle.textContent = data.subtitle
-        detailsSubTitle.classList.add("details__subtitle")
+    const detailsTitle = document.createElement("h1")
+    detailsTitle.textContent = data.title
+    detailsTitle.classList.add("details__title")
 
-        const detailsText = document.createElement("p")
-        detailsText.textContent = data.text
-        detailsText.classList.add("details__text")
+    const detailsSubTitle = document.createElement("h3")
+    detailsSubTitle.textContent = data.subtitle
+    detailsSubTitle.classList.add("details__subtitle")
 
-        const facilitiesList = document.createElement("ul")
-        facilitiesList.classList.add("facilities__list")
-        
-        const facilitiesHeader = document.createElement("h4")
-        facilitiesHeader.textContent = "Facilities"
-        facilitiesList.append(facilitiesHeader)
+    const detailsText = document.createElement("p")
+    detailsText.textContent = data.text
+    detailsText.classList.add("details__text")
 
-        data.facilities.forEach(facility => {
-            const facilitiesItem = document.createElement("li")
-            facilitiesItem.classList.add("details_list__item")
-            facilitiesItem.textContent = facility
-            facilitiesList.append(facilitiesItem)
-        });
+    const facilitiesList = document.createElement("ul")
+    facilitiesList.classList.add("facilities__list")
 
-        detailsSection.append(detailsLocation,detailsTitle,detailsSubTitle,detailsText,facilitiesList)
-        main.append(detailsImg,detailsSection)
-    }
-    
-        
-        
-    
-    )
+    const facilitiesHeader = document.createElement("h4")
+    facilitiesHeader.textContent = "Facilities"
+    facilitiesList.append(facilitiesHeader)
+
+    data.facilities.forEach(facility => {
+        const facilitiesItem = document.createElement("li")
+        facilitiesItem.classList.add("details_list__item")
+        facilitiesItem.textContent = facility
+        facilitiesList.append(facilitiesItem)
+    });
+
+    detailsSection.append(detailsLocation, detailsTitle, detailsSubTitle, detailsText, facilitiesList)
+    main.append(detailsImg, detailsSection)
+}
+
+
+
